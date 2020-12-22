@@ -16,7 +16,7 @@ function testdct(fname)
     % Calcular maxima diferencia entre pixeles
     ddifer=abs(double(Xrec)-double(X));
     dmaxdifer=max(max(max(ddifer)));
-    disp("Máxima diferencia entre pixeles");
+    disp("Maxima diferencia entre pixeles");
     disp(dmaxdifer);
     
     % Test visual
