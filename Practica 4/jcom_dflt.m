@@ -1,6 +1,6 @@
 function RC = jcom_dflt(fname,caliQ)
     
-% Comprime y descomprime un archivo de imagen BMP, aplicando una  
+% Comprime un archivo de imagen BMP, aplicando una  
 % simplificación del método JPEG. 
 
 % ENTRADA
