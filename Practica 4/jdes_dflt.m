@@ -66,7 +66,7 @@ function [MSE, RC] = jdes_dflt(fname)
     
     % Guardamos el archivo con la imagen reconstruida.
     [~,name,~] = fileparts(fname);
-    imagenRecuperada=strcat(name,'_des_def_',int2str(caliQ),'.bmp');
+    imagenRecuperada=strcat(name,'_des_def.bmp');
     imwrite(Xrec, imagenRecuperada, 'bmp');
     % Recuperacion de la imagen original
     nameOriginal = strcat(name, '','.bmp');
