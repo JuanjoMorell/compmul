@@ -41,7 +41,7 @@ function RC = jcom_custom(fname,caliQ)
     
     % Crear archivo comprimido
     [~, name, ~] = fileparts(fname);
-    nombrecomp = strcat(name, ".huf");
+    nombrecomp = strcat(name, ".huc");
     
     % Se preparan los archivos para su escritura en el archivo comprimido.
     % Datos de cabecera.
@@ -156,7 +156,7 @@ function RC = jcom_custom(fname,caliQ)
     TC = sizeCabecera + sizeDatos;
     
     % Relacion de compresion
-    RC = 100 * ((TC - TO) / TO);
+    RC = 100 * ((TO - TC) / TO);
     
     disp("Relacion de compresion");
     disp(RC);

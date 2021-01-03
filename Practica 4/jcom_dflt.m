@@ -105,7 +105,7 @@ function RC = jcom_dflt(fname,caliQ)
     TC = sizeCabecera + sizeDatos;
     
     % Relacion de compresion
-    RC = 100 * ((TC - TO) / TO);
+    RC = 100 * ((TO - TC) / TO);
     
     disp("Relacion de compresion");
     disp(RC);

@@ -104,17 +104,17 @@ function [MSE, RC] = jdes_custom(fname)
     disp(RC);
     
     % Test visual
-    if disptext
-        [m,n,~] = size(X);
-        figure('Units','pixels','Position',[100 100 n m]);
-        set(gca,'Position',[0 0 1 1]);
-        image(X); 
-        set(gcf,'Name','Imagen original X');
-        figure('Units','pixels','Position',[100 100 n m]);
-        set(gca,'Position',[0 0 1 1]);
-        image(Xrec);
-        set(gcf,'Name','Imagen reconstruida Xrec');
-    end
+     if disptext
+         [m,n,~] = size(X);
+         figure('Units','pixels','Position',[100 100 n m]);
+         set(gca,'Position',[0 0 1 1]);
+         image(X); 
+         set(gcf,'Name','Imagen original X');
+         figure('Units','pixels','Position',[100 100 n m]);
+         set(gca,'Position',[0 0 1 1]);
+         image(Xrec);
+         set(gcf,'Name','Imagen reconstruida Xrec');
+     end
     
 end
 

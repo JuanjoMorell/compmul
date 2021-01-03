@@ -1,9 +1,6 @@
 function [CodedY,CodedCb,CodedCr, BITS_Y_DC, HUFFVAL_Y_DC, BITS_Y_AC, HUFFVAL_Y_AC, BITS_C_DC, HUFFVAL_C_DC, BITS_C_AC, HUFFVAL_C_AC]=EncodeScans_custom(XScan)
 
-% EncodeScans_dflt: Codifica en binario los tres scan usando Huffman por defecto
-% Basado en ITU T.81, Anexos K, C y F
-% Basado en SF2,  Kingsbury, Treece & Rosten, 2011, University of Cambridge
-% Adaptado por Roque Marin
+% EncodeScans_dflt: Codifica en binario los tres scan usando Huffman Custom
 
 % Entradas:
 %  XScan: Scans de luminancia Y y crominancia Cb y Cr: Matriz mamp x namp X 3

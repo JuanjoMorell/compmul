@@ -34,6 +34,8 @@ YScan=blkproc(YXlab, [8 8], fun);
 CbScan=blkproc(CbXlab, [8 8], fun);
 CrScan=blkproc(Crlab, [8 8], fun);
 
+disp(CbScan)
+
 % Recompone  matriz  3-D
 XScan=cat(3,YScan,CbScan,CrScan);
 

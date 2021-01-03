@@ -1,13 +1,12 @@
 % Imagen de 8x8 valores
-p=[00,10,20,30,30,20,10,00; ...
-   10,20,30,40,40,30,20,10; ...
-   20,30,40,50,50,40,30,20; ... 
-   30,40,50,60,60,50,40,30; ...
-   30,40,50,60,60,50,40,30; ...
-   20,30,40,50,50,40,30,20; ... 
-   10,20,30,40,40,30,12,10; ...
-   00,10,20,30,30,20,10,00];
-
+% p=[00,10,20,30,30,20,10,00; ...
+%    10,20,30,40,40,30,20,10; ...
+%    20,30,40,50,50,40,30,20; ... 
+%    30,40,50,60,60,50,40,30; ...
+%    30,40,50,60,60,50,40,30; ...
+%    20,30,40,50,50,40,30,20; ... 
+%    10,20,30,40,40,30,12,10; ...
+%    00,10,20,30,30,20,10,00];
 
 % Renombra q. Sustituye q por p. Lee el guión.
 q=[00,10,00,00,00,00,00,10; ...
@@ -19,6 +18,8 @@ q=[00,10,00,00,00,00,00,10; ...
    00,00,00,00,10,00,00,00; ...
    00,00,00,00,10,00,00,00];
 
+imagenO = q;
+figure(69), imagesc(q);
 
 % Calcular la DCT para 8 valores.
 n=8; 
@@ -27,7 +28,7 @@ for j=0:7
     for i=0:7 
         for x=0:7
             for y=0:7 
-                dct(i+1,j+1)=dct(i+1,j+1)+p(x+1,y+1)*cos((2*y+1)*j*pi/(2*n))*cos((2*x+1)*i*pi/(2*n));
+                dct(i+1,j+1)=dct(i+1,j+1)+q(x+1,y+1)*cos((2*y+1)*j*pi/(2*n))*cos((2*x+1)*i*pi/(2*n));
             end; 
         end;
     end; 
@@ -35,14 +36,15 @@ end;
 dct=dct/4; dct(1,:)=dct(1,:)*0.7071; dct(:,1)=dct(:,1)*0.7071;
 
 % Mostrar la DCT
-dct
+dct;
+figure(77), colormap(gray), imagesc(dct);
 
 % Define el escalón de la cuantización seleccionando una magnitud umbral
 maximo = max(max(abs(dct)));
 minimo = min(min(abs(dct)));
 normalizados = dct/(maximo-minimo);  % Todos los valores están entre 0 y 1
 
-umbral = 0.5; % Analiza con los valores 0.5, 0.3, 0.2, 0.1, 0.05, 0.01
+umbral = 0.01; % Analiza con los valores 0.5, 0.3, 0.2, 0.1, 0.05, 0.01
 
 k=find(abs(normalizados) > umbral);  % Localizar índices que superan el umbral
 
@@ -96,11 +98,11 @@ idct=idct/4;
 %%% Mostraremos los resultados.
 
 % Mostrar los valores original y recuperados en terminal
-originales = p
+originales = q
 recuperados = idct 
 
 % Mostrar la imagen original y recuperada
-figure(1), imagesc(p), colormap(gray), axis square, axis off
+figure(1), imagesc(q), colormap(gray), axis square, axis off
 figure(2), imagesc(recuperados), colormap(gray), axis square, axis off
 
 
