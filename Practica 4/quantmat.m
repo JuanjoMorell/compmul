@@ -68,7 +68,6 @@ YXlab=blkproc(YXtrans, [8 8], fun, QY);
 CbXlab=blkproc(CbXtrans, [8 8], fun, QC);
 CrXlab=blkproc(CrXtrans, [8 8], fun, QC);
 
-disp(CbXlab)
 % Recompone  matriz de etiquetas 3-D
 Xlab=cat(3,YXlab,CbXlab,CrXlab);
 

@@ -3,10 +3,10 @@ function ejecutar(fname,FCS)
     nFactores = length(FCS);
     disp(sprintf('%s %d', 'FACTORES ', nFactores));
 
-    MSE_default = zeros(nFactores);
-    RC_default = zeros(nFactores);
-    MSE_custom = zeros(nFactores);
-    RC_custom = zeros(nFactores);
+    MSE_default = zeros(nFactores,1);
+    RC_default = zeros(nFactores,1);
+    MSE_custom = zeros(nFactores,1);
+    RC_custom = zeros(nFactores,1);
     
     [~, name, ~] = fileparts(fname);
     compHUF = strcat(name, ".huf");
@@ -20,19 +20,14 @@ function ejecutar(fname,FCS)
         disp(sprintf('%s %d', '(DEFAULT) Factor de Calidad: ', factor));
 
         jcom_dflt(fname,factor);
-        [MSE_def,RC_def] = jdes_dflt(compHUF);
+        [MSE_default(i),RC_default(i)] = jdes_dflt(compHUF);
         
         disp('--------------------------------------------------');
-        disp(sprintf('%s %d', '(DEFAULT) Factor de Calidad: ', factor));
+        disp(sprintf('%s %d', '(CUSTOM) Factor de Calidad: ', factor));
         
         jcom_custom(fname,factor);
-        [MSE_cus,RC_cus] = jdes_custom(compHUC);
-        
-        % Guardar valores para las graficas
-        MSE_default(i) = MSE_def;
-        RC_default(i) = RC_def;
-        MSE_custom(i) = MSE_cus;
-        RC_custom(i) = RC_cus;
+        [MSE_custom(i),RC_custom(i)] = jdes_custom(compHUC);
+       
     end
     
     % GRAFICAS
@@ -49,5 +44,6 @@ function ejecutar(fname,FCS)
     subtitulo = strcat(subtitulo, int2str(FCS));
 
     title({titulo, subtitulo});
+    
 end
 
